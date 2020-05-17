@@ -1,36 +1,24 @@
 import * as React from 'react';
-import Layout from 'components/Layout';
-import { GetStaticProps } from 'next';
+import Layout from 'components/layout';
+import Greeting from 'components/greeting';
+import useSWR from 'swr';
+import { User } from 'models/user';
+import fetch from '../utils/fetch';
 
-interface Props {
-  name: string;
-}
-interface State {
-  name: string;
-}
+const Home: React.FunctionComponent = () => {
+  const { data: user, error } = useSWR<User>('/api/users', fetch);
 
-export default class Home extends React.Component<Props, State> {
-  state = {
-    name: 'Bob',
-  };
-
-  constructor(props: Props) {
-    super(props);
+  if (error) {
+    return <div>failed to load</div>;
   }
-
-  render(): JSX.Element {
-    return (
-      <Layout>
-        <h2>Hello {this.props.name}!</h2>
-      </Layout>
-    );
+  if (typeof user === 'undefined') {
+    return <div>loading...</div>;
   }
-}
-
-export const getStaticProps: GetStaticProps<Props> = async function getStaticProps() {
-  return {
-    props: {
-      name: 'Jeff',
-    }, // will be passed to the page component as props
-  };
+  return (
+    <Layout>
+      <Greeting {...user}></Greeting>
+    </Layout>
+  );
 };
+
+export default Home;
