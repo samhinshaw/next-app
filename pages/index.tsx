@@ -1,14 +1,24 @@
-import * as React from "react";
+import * as React from 'react';
 
-export default class Home extends React.Component {
-  // logic to switch display based on login status
-  constructor(props: any) {
+interface Props {
+  name: string;
+}
+interface State {
+  name: string;
+}
+
+export default class Home extends React.Component<Props, State> {
+  state = {
+    name: 'Bob',
+  };
+
+  constructor(props: Props) {
     super(props);
   }
-  render() {
+  render(): JSX.Element {
     return (
       <>
-        <h2>Hello World!</h2>
+        <h2>Hello {this.props.name}!</h2>
       </>
     );
   }
