@@ -1,6 +1,8 @@
-import * as React from "react";
+import * as React from 'react';
 
-interface Stuff {}
+interface Stuff {
+  name?: string;
+}
 
 export default class Dashboard extends React.Component {
   constructor(props: Stuff) {
@@ -8,7 +10,7 @@ export default class Dashboard extends React.Component {
   }
   public state = {};
 
-  render() {
+  render(): JSX.Element {
     return (
       <>
         <div>
