@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Layout from 'components/Layout';
 
 interface Stuff {
   name?: string;
@@ -12,17 +13,18 @@ export default class Dashboard extends React.Component {
 
   render(): JSX.Element {
     return (
-      <div className="grid grid-cols-3 gap-4">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-      </div>
+      <Layout>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="">1</div>
+          <div className="">2</div>
+          <div className="">3</div>
+          <div className="">4</div>
+          <div className="">5</div>
+          <div className="">6</div>
+          <div className="">7</div>
+          <div className="">8</div>
+        </div>
+      </Layout>
     );
   }
 }

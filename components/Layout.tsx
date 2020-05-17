@@ -11,7 +11,7 @@ const Layout: React.FunctionComponent<Props> = ({
   children,
   title = 'This is the default title',
 }) => (
-  <div>
+  <div className="m-5">
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
@@ -21,16 +21,21 @@ const Layout: React.FunctionComponent<Props> = ({
       <nav>
         <Link href="/">
           <a>Home</a>
-        </Link>{' '}
-        |{' '}
+        </Link>
+        &nbsp;|&nbsp;
+        <Link href="/dashboard">
+          <a>Dashboard</a>
+        </Link>
+        &nbsp;|&nbsp;
         <Link href="/about">
           <a>About</a>
-        </Link>{' '}
-        |{' '}
+        </Link>
+        &nbsp;|&nbsp;
         <Link href="/users">
           <a>Users List</a>
-        </Link>{' '}
-        | <a href="/api/users">Users API</a>
+        </Link>
+        &nbsp;|&nbsp;
+        <a href="/api/users">Users API</a>
       </nav>
     </header>
     {children}
