@@ -6,7 +6,8 @@ import { User } from 'models/user';
 import fetch from '../utils/fetch';
 
 const Home: React.FunctionComponent = () => {
-  const { data: user, error } = useSWR<User>('/api/users', fetch);
+  const userId = undefined;
+  const { data: user, error } = useSWR<User>(`/api/users/${userId}`, fetch);
 
   if (error) {
     return <div>failed to load</div>;

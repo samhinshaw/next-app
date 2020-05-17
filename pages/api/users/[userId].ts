@@ -3,9 +3,11 @@ import UserService from 'backend/user.service';
 
 export default (req: NextApiRequest, res: NextApiResponse): void => {
   try {
-    // const userId = req.query?.userId;
-    console.log(req);
-    const User = UserService.getUserById(101);
+    const userId = Number(req.query?.userId);
+    if (typeof userId !== 'number' || Number.isNaN(userId)) {
+      throw new Error('Invalid User ID Specified.');
+    }
+    const User = UserService.getUserById(userId);
 
     res.status(200).json(User);
   } catch (err) {
