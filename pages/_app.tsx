@@ -1,7 +1,6 @@
 import * as React from 'react';
 import App, { AppProps } from 'next/app';
 import '../css/tailwind.css';
-import '../css/global.css';
 
 class MyApp extends App<AppProps> {
   constructor(props: AppProps) {
