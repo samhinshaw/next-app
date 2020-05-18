@@ -1,4 +1,4 @@
 {
   "presets": ["next/babel"],
-  "plugins": ["const-enum"]
+  "plugins": ["const-enum", "recharts"]
 }

@@ -1,16 +1,19 @@
 import * as React from 'react';
 
+import { LineChart, Line } from 'recharts';
+
 interface Dimensions {
   height: number;
   width: number;
+  data: any;
 }
 
 type Props = Dimensions;
 
-const Chart: React.FunctionComponent<Props> = ({ height, width }: Props) => {
-  const src = `https://quickchart.io/chart?width=${width}&height=${height}&c={type:'bar',data:{labels:['January','February','March','April', 'May'], datasets:[{label:'Dogs',data:[50,60,70,180,190]},{label:'Cats',data:[100,200,300,400,500]}]}}`;
-
-  return <img src={src}></img>;
-};
+const Chart: React.FunctionComponent<Props> = ({ height, width, data }: Props) => (
+  <LineChart width={width} height={height} data={data}>
+    <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+  </LineChart>
+);
 
 export default Chart;

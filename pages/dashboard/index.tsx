@@ -11,6 +11,14 @@ interface State {
   chartWidth: number;
 }
 
+const data = [
+  { name: 'Page A', uv: 400 },
+  { name: 'Page B', uv: 500 },
+  { name: 'Page C', uv: 300 },
+  { name: 'Page D', uv: 200 },
+  { name: 'Page E', uv: 700 },
+];
+
 export default class Dashboard extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -27,7 +35,7 @@ export default class Dashboard extends React.Component<Props, State> {
         <div className="grid grid-cols-4 gap-4">
           <div className="bg-indigo-600">1</div>
           <div className="col-span-2 row-span-2">
-            <Chart height={this.state.chartHeight} width={this.state.chartWidth} />
+            <Chart data={data} height={this.state.chartHeight} width={this.state.chartWidth} />
           </div>
           <div className="bg-indigo-600 row-span-2">3</div>
           <div className="bg-indigo-600">4</div>
