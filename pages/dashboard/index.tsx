@@ -7,7 +7,8 @@ interface Props {
 }
 
 interface State {
-  name: string;
+  chartHeight: number;
+  chartWidth: number;
 }
 
 export default class Dashboard extends React.Component<Props, State> {
@@ -16,7 +17,8 @@ export default class Dashboard extends React.Component<Props, State> {
   }
 
   state = {
-    name: '',
+    chartHeight: 300,
+    chartWidth: 500,
   };
 
   render(): JSX.Element {
@@ -25,7 +27,7 @@ export default class Dashboard extends React.Component<Props, State> {
         <div className="grid grid-cols-4 gap-4">
           <div className="bg-indigo-600">1</div>
           <div className="col-span-2 row-span-2">
-            <Chart />
+            <Chart height={this.state.chartHeight} width={this.state.chartWidth} />
           </div>
           <div className="bg-indigo-600 row-span-2">3</div>
           <div className="bg-indigo-600">4</div>
